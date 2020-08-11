@@ -1,40 +1,50 @@
-section {
-    /* width: 100vh; */
+@import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
+
+#userForm {
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    background-image: url('https://www.setaswall.com/wp-content/uploads/2017/03/Patterns-4K-Ultra-HD-Wallpaper-3840x2160.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #usernameSearch {
     margin-top: 20px;
+    background-color: #A8C2D8;
     padding: 10px 20px;
     border-style: solid;
-    border-width: 1px;
+    border-width: 0px;
     border-color: #dfe1e5;
-    width: 150px;
-    height: 12px;
+    width: 350px;
+    height: 18px;
     font-size: 16px;
     color: #212121;
-    box-shadow: 1px 2px rgba(0,0,0,0.3);
-    margin: 20px;
+    box-shadow: 2px 3px rgba(0,0,0,0.3);
+    margin: 30px;
     outline: none;
 }
     
-#usernameSearch:hover { box-shadow: 1px 2px rgba(0,0,0,0.4); }
+#usernameSearch:hover { box-shadow: 3px 4px rgba(0,0,0,0.4); }
 
 #submit {
+    font-family: 'Recursive', sans-serif;
     padding: 9px 15px;
-    background-color: #f4f4f4;
+    background-color: #54708A;
     border: solid;
-    border-width: 1px;
+    border-width: 0px;
     border-color: #f4f4f4;
-    color: #5f6368;
+    color: #ffffff;
     margin: 0px 4px;
-    font-size: 14px;
+    font-size: 16px;
+    outline: none;
 }
 
 #submit:hover {
-    color: black;
+    color: rgba(0,0,0,0.4);
     border-color: #dfe1e5;
     cursor: pointer;
 }

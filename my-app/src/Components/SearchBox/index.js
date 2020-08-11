@@ -19,7 +19,7 @@ class SearchForm extends Component {
         return (
             <section>
                 <form id='userForm' onSubmit={this.handleSubmit}>
-                    <input id='usernameSearch' type="text" value={this.state.username} onChange={this.handleChange}/>
+                    <input id='usernameSearch' type="text" value={this.state.username} onChange={this.handleChange} autofocus='true' />
                     <input id='submit' type="submit" value="Search repos" />
                 </form>
             </section>
