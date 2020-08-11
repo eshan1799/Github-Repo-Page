@@ -22,7 +22,7 @@ module.exports = {
     hot: true, // refresh the browser when changes are saved
     open: true, // open the app/project in the browser when the server starts
     port: 8000, // use this port for the server
-    host: '0.0.0.0', // server is accessible externally
+    host: 'localhost', // server is accessible externally
     historyApiFallback: true, //serve a previous page on a 404 error
     watchContentBase: true // watch for changes to static files
   },
