@@ -43,3 +43,27 @@
 }
 
 #usernameSearch:hover, #submit:hover { box-shadow: 3px 4px rgba(0,0,0,0.4); }
+
+#displayRepos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #54708A;
+    color: #ffffff;
+}
+
+#sec {
+    align-self: center;
+    width: 100px;
+    background-color: #212121;
+}
+
+#repoInfo {
+    text-align: center;
+    background-color: #A8C2D8;
+    width: 70%;
+    margin: 20px 20px;
+}
+
+.repoName, .repoText { font-family: 'Recursive', sans-serif; }
