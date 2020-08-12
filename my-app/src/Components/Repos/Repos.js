@@ -7,7 +7,7 @@ class Repos extends Component {
 
     render(){
         return (
-            <h1>This is where Repos will be displayed</h1>
+        <h1>test</h1>
         );
     };
 };
