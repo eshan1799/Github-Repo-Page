@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {withRouter } from 'react-router-dom';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+// import AnchorLink from 'react-anchor-link-smooth-scroll';
 import './style.css';
-import Repos from '../Repos/Repos'
+// import Repos from '../Repos/Repos'
 
 class SearchForm extends Component {
-    state = { username: "" , usernameInput: "", display: false, profilePic: "", repoNames: [], repoDescriptions: [], repoLanguages: [], repoForks: [], repoStars: []};
+    state = { username: "" , usernameInput: "", display: false, profilePic: "", repoNames: [], repoURLs: [], repoDescriptions: [], repoLanguages: [], repoForks: [], repoStars: []};
 
     handleSubmit = e => {
         e.preventDefault();
@@ -16,6 +16,7 @@ class SearchForm extends Component {
             .then((data) => {
                 this.setState( { profilePic: data[0].owner.avatar_url})
                 this.setState( { repoNames: data.map(repo => repo.name) })
+                this.setState( { repoURLs: data.map(repo => repo.url) })
                 this.setState( { repoDescriptions: data.map(repo => repo.description) })
                 this.setState( { repoLanguages: data.map(repo => repo.language) })
                 this.setState( { repoForks: data.map(repo => repo.forks_count) })
@@ -33,8 +34,6 @@ class SearchForm extends Component {
     }
 
     render(){
-
-        // const elements = [] //..some array
 
         const items = []
         for (let i=0; i< this.state.repoNames.length; i++) {
