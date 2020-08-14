@@ -33,9 +33,7 @@ class SearchForm extends Component {
     }
 
     render(){
-
-        // const elements = [] //..some array
-
+        
         const items = []
         for (let i=0; i< this.state.repoNames.length; i++) {
 
