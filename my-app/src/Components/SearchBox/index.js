@@ -5,23 +5,24 @@ import './style.css';
 // import Repos from '../Repos/Repos'
 
 class SearchForm extends Component {
-    state = { username: "" , usernameInput: "", display: false, profilePic: "", repoNames: [], repoURLs: [], repoDescriptions: [], repoLanguages: [], repoForks: [], repoStars: []};
+    state = { username: "" , usernameInput: "", display: false, profilePic: "", profileUrl: "", repoNames: [], repoURLs: [], repoDescriptions: [], repoLanguages: [], repoForks: [], repoStars: []};
 
     handleSubmit = e => {
         e.preventDefault();
         this.setState( { username: `${this.state.usernameInput}`, display: true }, () => {
-            console.log(this.state.display)
             fetch(`https://api.github.com/users/${this.state.username}/repos`)
             .then(res => res.json())
             .then((data) => {
                 this.setState( { profilePic: data[0].owner.avatar_url})
+                this.setState( { profileUrl: data[0].owner.html_url})
                 this.setState( { repoNames: data.map(repo => repo.name) })
-                this.setState( { repoURLs: data.map(repo => repo.url) })
+                this.setState( { repoURLs: data.map(repo => repo.html_url) })
                 this.setState( { repoDescriptions: data.map(repo => repo.description) })
                 this.setState( { repoLanguages: data.map(repo => repo.language) })
                 this.setState( { repoForks: data.map(repo => repo.forks_count) })
                 this.setState( { repoStars: data.map(repo => repo.stargazers_count) })
-                document.getElementById("usernameSearch").value = "";
+                this.setState( { usernameInput: '' })
+                document.getElementById("usernameSearch").focus();
             })
             .catch(console.log)
         })
@@ -40,11 +41,17 @@ class SearchForm extends Component {
 
             items.push(
             <div id='repoInfo' key={i}>
-            <h3 className = 'repo repoName'>{this.state.repoNames[i]}</h3>
-            <p className = 'repo repoText'>Description: {this.state.repoDescriptions[i]}</p>
-            <p className = 'repo repoText'>Languages: {this.state.repoLanguages[i]}</p>
-            <p className = 'repo repoNumbers'>Forks: {this.state.repoForks[i]}</p>
-            <p className = 'repo repoNumbers'>Stars: {this.state.repoStars[i]}</p>
+            <h3><a target="_blank" href={this.state.repoURLs[i]}>{this.state.repoNames[i]}</a></h3>
+            <p>Description: {this.state.repoDescriptions[i]}</p>
+            <p>Languages: {this.state.repoLanguages[i]}</p>
+            <p>
+                <span className='fork'>&#x2442;</span>
+                <span className='text'> - {this.state.repoForks[i]}</span>
+            </p>
+            <p>
+                <span className='star'>&#9733;</span>
+                <span className='text'> - {this.state.repoStars[i]}</span>
+            </p>
             </div>
             );
         }
@@ -56,11 +63,13 @@ class SearchForm extends Component {
                 <input id='submit' type="submit" value="Search repos" />
             </form>
             <section style={{display: `${this.state.display ? 'flex': 'none'}`}} id='displayRepos'>
-                <h1>{this.state.username}</h1>
-                <img src={this.state.profilePic} />
-                <p>Repos: {this.state.repoNames.length}</p>
-                { items }
-            </section>
+                <section id='repoHeader'>
+                    <h1 id='username'><a target='_blank' href={this.state.profileUrl}>{this.state.username}</a></h1>
+                    <img src={this.state.profilePic} />
+                    <p>Repos: {this.state.repoNames.length}</p>
+                </section>
+                    { items }
+                </section>
             </main>
         );
     };
