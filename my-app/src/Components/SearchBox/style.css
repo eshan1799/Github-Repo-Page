@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Recursive&display=swap');
 
+main {
+    background-image: url('https://www.setaswall.com/wp-content/uploads/2017/03/Patterns-4K-Ultra-HD-Wallpaper-3840x2160.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 #userForm {
     height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: url('https://www.setaswall.com/wp-content/uploads/2017/03/Patterns-4K-Ultra-HD-Wallpaper-3840x2160.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 #usernameSearch {
@@ -44,20 +48,23 @@
 
 #usernameSearch:hover, #submit:hover { box-shadow: 3px 4px rgba(0,0,0,0.4); }
 
+#repoHeader {
+    background-color: #54708A;
+    text-align: center;
+    width: 70%;
+    margin: 25px 20px;
+    padding-bottom: 17px;
+}
+
 #displayRepos {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #54708A;
     color: #ffffff;
 }
 
-#sec {
-    align-self: center;
-    width: 100px;
-    background-color: #212121;
-}
+#username { font-size: 25px; }
 
 #repoInfo {
     text-align: center;
@@ -66,4 +73,31 @@
     margin: 20px 20px;
 }
 
-.repoName, .repoText { font-family: 'Recursive', sans-serif; }
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+#displayRepos, #repoName a {
+    font-family: 'Recursive', sans-serif;
+}
+
+.fork {
+    color: grey;
+    font-size: 30px;
+}
+
+.star {
+    color: gold;
+    font-size: 25px;
+}
+
+.fork, .star { 
+    position: relative;
+    bottom: .01em;
+}
+
+.text {
+    position: relative;
+    bottom: .17em;
+}
